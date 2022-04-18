@@ -6,7 +6,7 @@ def main():
             contents = dot.read()
             print(contents)
     except:
-        print("Something went wrong!")
+        print("cannot read file: " + file_path)
 
 
 main()
