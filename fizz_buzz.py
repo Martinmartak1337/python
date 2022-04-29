@@ -1,3 +1,4 @@
+# doesnt work
 def fizzbuzz(num):
     try:
         if num % 3 == 0 and num != 0:
