@@ -1,17 +1,14 @@
-# doesnt work
-def fizzbuzz(num):
-    try:
-        if num % 3 == 0 and num != 0:
-            print("fizz!\n")
-        elif num % 5 == 0 and num != 0:
-            print("buzz!\n")
-        elif num % 15 == 0 and num != 0:
-            print("fizzbuzz!\n")
+def fizzBuzz():
+    num = int(input("Enter the number here: "))
+    for i in range(1, num + 1):
+        if i % 3 == 0 and i % 5 == 0:
+            print("FizzBuzz")
+        elif i % 3 == 0:
+            print("Fizz!")
+        elif i % 5 == 0:
+            print("Buzz!")
         else:
-            print(num)
-    except Exception as e:
-        return e
+            print(i)
 
 
-for i in range(0, 256):
-    fizzbuzz(i)
+fizzBuzz()
