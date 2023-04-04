@@ -17,9 +17,9 @@ def main():
 				if(new_list[k] > new_list[k+1]):
 					xyz = new_list[k+1]
 					abc = alphabet[k+1]
-					new_list[k+1] == new_list[k]
+					new_list[k+1] = new_list[k]
 					alphabet[k+1] = alphabet[k]
-					new_list[k] == xyz
+					new_list[k] = xyz
 					alphabet[k] = abc
 				
 	for l in range(0, len(ciphertext)-1):
