@@ -1,5 +1,7 @@
 from random import randrange
 from time import sleep
+from os import name
+from newFlyGame import abba
 l = [list] * 64 #defining the map
 m = [list]
 b = [list] * 8
@@ -8,25 +10,22 @@ def defineGameAndOtherCharacterS(row: int, character: str) -> list:
     if character == '$':
         global integerValue
         integerValue = someThingStrange
-    l[(row*8)-1+someThingStrange] = character
+    l[(row*8)-1+someThingStrange] = character # break here.
     return l
 def randomCall() -> int:
     return randrange(0, 8)
 def defineAll() -> list:
-    for i in range(6):
+    for i in range(7):
         defineGameAndOtherCharacterS(i, '#')
     return  defineGameAndOtherCharacterS(7, '$')
 d = defineAll()
-def defineBullet() -> int:
-    # define it already!
-    return -1
 def inputField() -> int:
-    return 0
+    return int(input())
 def ifStatementForCheckingCharacter(char: str) -> bool:
     if char == '$':
         return True
     return False
-def mainGameLoop() -> list:
+def mainGameLoop(score: int) -> list:
     c = 0
     for q in range(len(d)-8, len(d)):
         if ifStatementForCheckingCharacter('$'):
@@ -36,15 +35,22 @@ def mainGameLoop() -> list:
     for n in range(8):
         d[n] = b[n]
     d[randomCall()] = '#'
-    if d[c+inputField()] == '#':
+    if d[c+inputField()-8] == '#':
+        abba(score)
         print("GAME OVER!!!")
         quit(0)
     else:
-        d[c+inputField()] = '$'
+        d[c+inputField()-8] = '$'
     return d
+def hasWrittenScore() -> bool:
+    return True
 def main():
+    game = 0
     while True:
-        sleep(0.25)
-        print(mainGameLoop())
+        f = mainGameLoop(game)          # [0, 0, 0, 0, 0, 0, 0, #]
+        game+=1
+        sleep(0.05)
+        print(f)
         print('\n')
 main()
+
