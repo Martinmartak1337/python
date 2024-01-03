@@ -26,21 +26,24 @@ def ifStatementForCheckingCharacter(char: str) -> bool:
         return True
     return False
 def mainGameLoop(score: int) -> list:
-    c = 0
-    for q in range(len(d)-8, len(d)):
-        if ifStatementForCheckingCharacter('$'):
-            c = q
-    for k in range(len(d)-8):
-        d[k+8] = d[k]
-    for n in range(8):
-        d[n] = b[n]
-    d[randomCall()] = '#'
-    if d[c+inputField()-8] == '#':
-        abba(score)
-        print("GAME OVER!!!")
-        quit(0)
-    else:
-        d[c+inputField()-8] = '$'
+    try:
+        c = 0
+        for q in range(len(d)-8, len(d)):
+            if ifStatementForCheckingCharacter('$'):
+                c = q
+        for k in range(len(d)-8):
+            d[k+8] = d[k]
+        for n in range(8):
+            d[n] = b[n]
+        d[randomCall()] = '#'
+        if d[c+inputField()-8] == '#':
+            abba(score)
+            print("GAME OVER!!!")
+            quit(0)
+        else:
+            d[c+inputField()-8] = '$'
+    except IndexError as e:
+            return e
     return d
 def hasWrittenScore() -> bool:
     return True
